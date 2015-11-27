@@ -2,20 +2,30 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<meta name="google" value="notranslate">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="google" value="notranslate">		
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.5, maximum-scale=0.5, user-scalable=no" />
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src = "js/script.js"></script>
-	<!-- <link rel="apple-touch-icon-precomposed" href="img/icono.png"/> -->
+    <link rel="apple-touch-icon-precomposed" href="img/icono.png"/> 
 	<link rel = "manifest" href = "manifest.json">
+    <link href = "css/style.css" rel = "stylesheet" type = "text/css" >
+    <link href = "css/sweetalert.css" rel = "stylesheet">    
+    <link href = "css/animate.css" rel = "stylesheet">	
+	<script src = "js/sweetalert.min.js"></script>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>		
+	<script src = "https://code.createjs.com/createjs-2015.05.21.min.js"></script>
+    <script src = "js/script.js"></script>	
 	<title>1-121</title>
 </head>
-<body>
-	<div id="obj"></div>
-	<div id="tiempo"></div>
-	<div id="tabla"></div>
+<body>	
+	<div id="vh" class="vh">
+		<div id="sound" class="sound"></div>
+		<div id="obj"></div>
+		<div id="tiempo">Tiempo</div>
+		<div id="tabla"></div>	
+		<div id="inicio" class="inicio" style="cursor:pointer">Iniciar</div>	
+		<div id="ayuda" class="ayuda" style="cursor:pointer; visibility:hidden">Ayudas 3</div>	
+	</div>	
 </body>
 </html>
