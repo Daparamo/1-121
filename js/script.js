@@ -104,7 +104,6 @@ $(function()
 		ss = mm = hh = 0;
 		tiempo = setInterval(function(){
 		ss++;
-		ss;
 			$("#tiempo").html("Tiempo: " + hh +" : "  + mm +" : "+ ss);
 			if(ss >= 60)
 			{			
@@ -184,7 +183,7 @@ $(function()
 				$("#numero_"+i).click(function(event)
 				{					
 					numSeleccion = this.id.split("_")[1];
-					if(this.id.split("_")[1] != cantNumeros)
+					if(numAdivina != cantNumeros)
 					{
 						if(numeros[numSeleccion].seleccionado=="no" && this.id.split("_")[1] == numAdivina)
 						{							
