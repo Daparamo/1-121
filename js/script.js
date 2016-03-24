@@ -1,5 +1,6 @@
 $(function()
 {
+	$("#tabla").hide();
 	// para que pueda ser dinamico usar numeros con raices exactas ej 100 225 121 para que la matriz quede cuadrada
 	var cantNumeros = 121;
 	//numero a adivinar...
@@ -90,8 +91,11 @@ $(function()
 			$("#numero_" + numAdivina).removeAttr('style');
 			$("#numero_" + numAdivina).last().addClass("animated "+animate[aleatorio]);
 			$("#numero_" + numAdivina).last().addClass('selected');
-			swal("Ganaste", "lograste encotrar todos los numeros en: " + hh +" : "  + mm +" : "+ ss +" hh/mm/ss","success");
+			swal({title:"Ganaste",text:"lograste encotrar todos los numeros en: "+hh+" : " +mm+" : "+ss+" hh/mm/ss", confirmButtonText: "Reiniciar",cancelButtonText: "Salir", closeOnConfirm: true,showCancelButton: false , type:"success"},function(isConfirm){
+				 isConfirm ? location.reload():window.close()});
+			//swal("Ganaste", "lograste encotrar todos los numeros en: " + hh +" : "  + mm +" : "+ ss +" hh/mm/ss","success");
 			sound == true ? createjs.Sound.play("tada") : console.log("nosound");
+			
 			clearInterval(tiempo);
 		}		
 	});
@@ -104,6 +108,7 @@ $(function()
 		ss = mm = hh = 0;
 		tiempo = setInterval(function(){
 		ss++;
+		ss;
 			$("#tiempo").html("Tiempo: " + hh +" : "  + mm +" : "+ ss);
 			if(ss >= 60)
 			{			
@@ -138,14 +143,9 @@ $(function()
 		{
 			tabla += "<tr>";
 			for (var j = 1; j < Math.sqrt(cantNumeros)+1; j++) 
-			{					
-				//debugger;								
-				numPone = llenaTabla();	
-				//debugger;			
-				//color = randomColor();
-				tabla+="<td><div id='numero_"+numPone+"' style = color:"+randomColor()+";cursor:pointer; class='numero'> "+numPone+" </div></td>";
-				//var aleatorio = Math.floor(Math.random()*animateIn.length);
-				//$(".numero" + numPone).addClass("'animated "+animateIn[aleatorio]+"'");
+			{												
+				numPone = llenaTabla();					
+				tabla+="<td><div id='numero_"+numPone+"' style = color:"+randomColor()+";cursor:pointer; class='numero'> "+numPone+" </div></td>";				
 			};
 			tabla+="</tr>";
 		};
@@ -162,8 +162,7 @@ $(function()
             random = Math.floor(Math.random() * cantNumeros);
             if(numeros[random].salio == "no")
             {
-                num = numeros[random].numero;
-                //console.log(num);
+                num = numeros[random].numero;                
                 numeros[random].salio = "si";
                 break;
             }
@@ -177,6 +176,7 @@ $(function()
 		if(iniciar)
 		{			
 			$("#inicio").hide();
+			$("#tabla").show();
 			$("#ayuda").removeAttr('style');
 			for (var i = 0; i <= cantNumeros; i++) 
 			{
@@ -206,15 +206,18 @@ $(function()
 						}
 					}
 					else
-					{						
+					{			
 						var aleatorio = Math.floor(Math.random()*animate.length);
 						$("#numero_" + this.id.split("_")[1]).removeClass('numero');
 						$("#numero_" + this.id.split("_")[1]).last().addClass("animated "+animate[aleatorio]);						
 						$("#numero_" + this.id.split("_")[1]).last().addClass('selected');
 						$("#obj").html("Objetivo : "+numAdivina);
-						swal("Ganaste", "lograste encotrar todos los numeros en: " + hh +" : "  + mm +" : "+ ss +" hh/mm/ss","success");
-						sound == true ? createjs.Sound.play("tada") : console.log("nosound");
+						swal({title:"Ganaste",text:"lograste encotrar todos los numeros en: "+hh+" : " +mm+" : "+ss+" hh/mm/ss", confirmButtonText: "Reiniciar",cancelButtonText: "Salir", closeOnConfirm: true,showCancelButton: false , type:"success"},function(isConfirm){
+				 			isConfirm ? location.reload():window.close()});
+						//swal("Ganaste", "lograste encotrar todos los numeros en: " + hh +" : "  + mm +" : "+ ss +" hh/mm/ss","success");
+						sound == true ? createjs.Sound.play("tada") : console.log("nosound");						
 						clearInterval(tiempo);
+
 					}							
 				});
 			};		
