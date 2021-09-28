@@ -1,7 +1,7 @@
 body
 {
 	background-image: url(../img/bg.jpg);	
-	text-shadow: 1px .5px .5px black;
+	text-shadow: 2px 0px 1px black;
 	text-align: center;	
 }
 #tabla
@@ -29,7 +29,7 @@ body
 	text-align: center;	
 	padding: 3px;
 	cursor: hand;
-	text-shadow: -4px 3px 0 #34d16e, -14px 7px 0;
+	
 }
 .selected
 {
