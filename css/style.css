@@ -1,7 +1,7 @@
 body
 {
 	background-image: url(../img/bg.jpg);	
-	text-shadow: 1px .5px .5px black;
+	text-shadow: 1px 0px black;
 	text-align: center;	
 }
 #tabla
@@ -29,6 +29,33 @@ body
 	text-align: center;	
 	padding: 3px;
 	cursor: hand;
+}
+#selectGame{
+	width: 100%;
+	height: 88vh;
+	display: flex;
+	flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn {
+	width: 34%;
+	margin: auto;
+	margin-top: 3px;	
+	border-top: 2px;
+	width: 20%;
+	height: 30px;
+	border: 2px solid black;
+	border-radius: 50px;
+	padding-top: 3px;
+	background-color: #14E200;
+	-webkit-box-shadow: 7px 7px 23px 0px rgba(50, 255, 50, 1);
+	-moz-box-shadow:    7px 7px 23px 0px rgba(50, 255, 50, 1);
+	box-shadow:         7px 7px 23px 0px rgba(50, 255, 50, 1);
+	cursor: pointer;
+
 }
 .selected
 {
