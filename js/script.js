@@ -2,7 +2,7 @@ $(function()
 {
 	$("#tabla").hide();
 	// para que pueda ser dinamico usar numeros con raices exactas ej 100 225 121 para que la matriz quede cuadrada
-	var cantNumeros = 121;
+	var cantNumeros = 0;
 	//numero a adivinar...
 	var numAdivina=1;
 	//adnimaciones...
@@ -85,7 +85,7 @@ $(function()
 				$("#ayuda").fadeOut('slow', function(){});
 			}
 		}
-		else
+		else if(ayuda > 0 && numAdivina == (cantNumeros))
 		{
 			$("#numero_" + numAdivina).removeClass('numero');
 			$("#numero_" + numAdivina).removeAttr('style');
@@ -100,7 +100,33 @@ $(function()
 		}		
 	});
 
-	$("#inicio").click(function(event)
+    $("#inicio").click(function(event){
+        $("#inicio").hide();
+        $("#selectGame").removeAttr('style');
+        
+        
+
+    });
+    $("#facil").click(function(event){
+        cantNumeros = 25;
+		creaNumeros();
+        creaTabla();
+        iniciar();
+    });
+    $("#medio").click(function(event){
+        cantNumeros = 49;
+		creaNumeros();
+        creaTabla();
+        iniciar();
+    });
+    $("#dificil").click(function(event){
+        cantNumeros = 121;
+		creaNumeros();
+        creaTabla();
+        iniciar();
+    });
+
+	var iniciar =function()
 	{
 		iniciar = true;
 		SeleccionaNumero();
@@ -124,7 +150,7 @@ $(function()
 				}
 			}
 		}, 1000);
-	});
+	};
 	
 	//llena nuestro vector de objetos con los numeros y 2 propiedades mas (para saber si ya salío y para saber si ya fue seleccionado)...
 	var creaNumeros = (function creaNumeros()
@@ -133,7 +159,7 @@ $(function()
 		for (var i = 2; i < cantNumeros+1; i++) {
 			numeros.push({numero:i,salio:"no",seleccionado:"no"});
 		};
-	})();
+	});
 
 	//se crea la tabla dinamicamente con los id de cada campo 	
 	var creaTabla = (function creaTabla()
@@ -150,10 +176,11 @@ $(function()
 			tabla+="</tr>";
 		};
 		$("#tabla").append(tabla);
-	})();
+	});
 	
-	function llenaTabla()
+	var llenaTabla = function()
     {   
+        debugger
         var num = 0;
         var random = 0;
         //Se debe iterar hasta que se encuentra que un nímero no ha salido...
@@ -176,6 +203,7 @@ $(function()
 		if(iniciar)
 		{			
 			$("#inicio").hide();
+      $("#selectGame").hide();
 			$("#tabla").show();
 			$("#ayuda").removeAttr('style');
 			for (var i = 0; i <= cantNumeros; i++) 
