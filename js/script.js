@@ -203,7 +203,7 @@ $(function()
 		if(iniciar)
 		{			
 			$("#inicio").hide();
-            $("#selectGame").hide();
+      $("#selectGame").hide();
 			$("#tabla").show();
 			$("#ayuda").removeAttr('style');
 			for (var i = 0; i <= cantNumeros; i++) 

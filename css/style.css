@@ -29,6 +29,8 @@ body
 	text-align: center;	
 	padding: 3px;
 	cursor: hand;
+	text-shadow: 2px 0px 1px black;
+	
 }
 #selectGame{
 	width: 100%;
