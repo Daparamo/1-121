@@ -85,8 +85,8 @@ $(function () {
 			$("#numero_" + numAdivina).removeAttr('style');
 			$("#numero_" + numAdivina).last().addClass("animated " + animate[aleatorio]);
 			$("#numero_" + numAdivina).last().addClass('selected');
-			ganaste();
-			//swal("Ganaste", "lograste encotrar todos los numeros en: " + hh +" : "  + mm +" : "+ ss +" hh/mm/ss","success");
+			//ganaste();
+			Swal.fire("Ganaste", "lograste encotrar todos los numeros en: " + hh +" : "  + mm +" : "+ ss +" hh/mm/ss","success");
 			sound == true ? createjs.Sound.play("tada") : console.log("nosound");
 
 			clearInterval(tiempo);
