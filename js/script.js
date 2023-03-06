@@ -187,7 +187,11 @@ $(function () {
 	var SeleccionaNumero = (function SeleccionaNumero() {
 		if (iniciar) {
 			$("#inicio").hide();
+<<<<<<< HEAD
 			$("#selectGame").hide();
+=======
+      $("#selectGame").hide();
+>>>>>>> 8f708eb69257dfe5fffbc23955e090cc49c97dff
 			$("#tabla").show();
 			$("#ayuda").removeAttr('style');
 			for (var i = 0; i <= cantNumeros; i++) {
