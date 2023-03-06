@@ -187,11 +187,7 @@ $(function () {
 	var SeleccionaNumero = (function SeleccionaNumero() {
 		if (iniciar) {
 			$("#inicio").hide();
-<<<<<<< HEAD
 			$("#selectGame").hide();
-=======
-      $("#selectGame").hide();
->>>>>>> 8f708eb69257dfe5fffbc23955e090cc49c97dff
 			$("#tabla").show();
 			$("#ayuda").removeAttr('style');
 			for (var i = 0; i <= cantNumeros; i++) {
@@ -223,12 +219,12 @@ $(function () {
 						$("#obj").html("Objetivo : " + numAdivina);
 
 
-						ganaste();
+						// ganaste();
 
 
-						// swal({ title: "Ganaste", text: "lograste encotrar todos los numeros en: " + hh + " : " + mm + " : " + ss + " hh/mm/ss", confirmButtonText: "Reiniciar", cancelButtonText: "Salir", closeOnConfirm: true, showCancelButton: false, type: "success" }, function (isConfirm) {
-						// 	isConfirm ? location.reload() : window.close()
-						// });
+						Swal.fire({ title: "Ganaste", text: "lograste encotrar todos los numeros en: " + hh + " : " + mm + " : " + ss + " hh/mm/ss", confirmButtonText: "Reiniciar", cancelButtonText: "Salir", closeOnConfirm: true, showCancelButton: false, type: "success" }, function (isConfirm) {
+							isConfirm ? location.reload() : window.close()
+						});
 						//swal("Ganaste", "lograste encotrar todos los numeros en: " + hh +" : "  + mm +" : "+ ss +" hh/mm/ss","success");
 						sound == true ? createjs.Sound.play("tada") : console.log("nosound");
 						clearInterval(tiempo);
@@ -238,49 +234,50 @@ $(function () {
 			};
 		}
 	});
-	var ganaste = function () {
-		let data = {
-			name: 'Daniel',
-			tiempo: tiempoResultado,
-			dificultad: dificultad
-		};
-		Swal.fire({
-			title: 'Ganaste lograste encotrar todos los numeros en ' + tiempoResultado,
-			input: 'text',
-			inputAttributes: {
-				autocapitalize: 'off'
-			},
-			showCancelButton: false,
-			confirmButtonText: 'Guardar',
-			showLoaderOnConfirm: true,
-			preConfirm: (Nombre) => {
-				data.nombre = Nombre;
-				return fetch(`http://localhost:4000/resultados`, {
-					method: 'POST', // or 'PUT'
-					body: JSON.stringify(data), // data can be `string` or {object}!
-					headers: {
-						'Content-Type': 'application/json'
-					}
-				})
-					.then(response => {
-						if (!response.ok) {
-							throw new Error(response.statusText)
-						}
-						return response.json()
-					})
-					.catch(error => {
-						Swal.showValidationMessage(
-							`Request failed: ${error}`
-						)
-					})
-			},
-			allowOutsideClick: () => !Swal.isLoading()
-		}).then((result) => {
-			if (result.isConfirmed) {
-				mostrarResultados(result);
-			}
-		})
-	}
+	// var ganaste = function () {
+	// 	let data = {
+	// 		name: 'Daniel',
+	// 		tiempo: tiempoResultado,
+	// 		dificultad: dificultad
+	// 	};
+	// 	Swal.fire({
+	// 		title: 'Ganaste lograste encotrar todos los numeros en ' + tiempoResultado,
+	// 		input: 'text',
+	// 		inputAttributes: {
+	// 			autocapitalize: 'off'
+	// 		},
+	// 		showCancelButton: false,
+	// 		confirmButtonText: 'Guardar',
+	// 		showLoaderOnConfirm: true,
+	// 		preConfirm: (Nombre) => {
+	// 			data.nombre = Nombre;
+	// 			return fetch(`http://localhost:4000/resultados`, {
+	// 				method: 'POST', // or 'PUT'
+	// 				body: JSON.stringify(data), // data can be `string` or {object}!
+	// 				headers: {
+	// 					'Content-Type': 'application/json'
+	// 				}
+	// 			})
+	// 				.then(response => {
+	// 					if (!response.ok) {
+	// 						throw new Error(response.statusText)
+	// 					}
+	// 					return response.json()
+	// 				})
+	// 				.catch(error => {
+	// 					Swal.showValidationMessage(
+	// 						`Request failed: ${error}`
+	// 					)
+	// 				})
+	// 		},
+	// 		allowOutsideClick: () => !Swal.isLoading()
+	// 	}).then((result) => {
+	// 		if (result.isConfirmed) {
+	// 			mostrarResultados(result);
+	// 		}
+	// 	})
+	// }
+
 	var mostrarResultados = function (result) {
 
 		var div_resultados = document.createElement("div");
