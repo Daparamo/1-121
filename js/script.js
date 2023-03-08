@@ -86,7 +86,9 @@ $(function () {
 			$("#numero_" + numAdivina).last().addClass("animated " + animate[aleatorio]);
 			$("#numero_" + numAdivina).last().addClass('selected');
 			//ganaste();
-			Swal.fire("Ganaste", "lograste encotrar todos los numeros en: " + hh +" : "  + mm +" : "+ ss +" hh/mm/ss","success");
+			Swal.fire({ title: "Ganaste", text: "lograste encotrar todos los numeros en: " + hh + " : " + mm + " : " + ss + " hh/mm/ss", confirmButtonText: "Reiniciar", cancelButtonText: "Salir", closeOnConfirm: true, showCancelButton: false, type: "success" }).then((result) => {
+				result.isConfirmed ? location.reload() : window.close()
+			});
 			sound == true ? createjs.Sound.play("tada") : console.log("nosound");
 
 			clearInterval(tiempo);
@@ -222,8 +224,8 @@ $(function () {
 						// ganaste();
 
 
-						Swal.fire({ title: "Ganaste", text: "lograste encotrar todos los numeros en: " + hh + " : " + mm + " : " + ss + " hh/mm/ss", confirmButtonText: "Reiniciar", cancelButtonText: "Salir", closeOnConfirm: true, showCancelButton: false, type: "success" }, function (isConfirm) {
-							isConfirm ? location.reload() : window.close()
+						Swal.fire({ title: "Ganaste", text: "lograste encotrar todos los numeros en: " + hh + " : " + mm + " : " + ss + " hh/mm/ss", confirmButtonText: "Reiniciar", cancelButtonText: "Salir", closeOnConfirm: true, showCancelButton: false, type: "success" }).then((result) => {
+							result.isConfirmed ? location.reload() : window.close()
 						});
 						//swal("Ganaste", "lograste encotrar todos los numeros en: " + hh +" : "  + mm +" : "+ ss +" hh/mm/ss","success");
 						sound == true ? createjs.Sound.play("tada") : console.log("nosound");
@@ -296,12 +298,12 @@ $(function () {
 			$("#resultados").append(div1);
 			i++;
 		}
-		$("#obj").attr("style","display:none;");
-		$("#sound").attr("style","display:none;");
-		$("#tiempo").attr("style","display:none;");
-		$("#tabla").attr("style","display:none;");
+		$("#obj").attr("style", "display:none;");
+		$("#sound").attr("style", "display:none;");
+		$("#tiempo").attr("style", "display:none;");
+		$("#tabla").attr("style", "display:none;");
 		$("#resultados").removeAttr('style');
-		
+
 	}
 	//Colores Aleatorios...
 	function randomColor() {
